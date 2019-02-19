@@ -1,6 +1,4 @@
 
-package mousepass;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -9,10 +7,15 @@ import java.io.*;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.io.File;
 
 public class MousePass extends JFrame implements ActionListener {
 
-    static int numQuestions = 20;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	static int numQuestions = 20;
     static Random rand = new Random();
     static int numAsk = 5;
     static long time = 0;
@@ -314,13 +317,19 @@ public class MousePass extends JFrame implements ActionListener {
         no.setVisible(false);
         yes.setVisible(false);
         na.setVisible(false);
-        //Thread.sleep(2000);
-        Process p = Runtime.getRuntime().exec("python mouspass_loaded_weights.py");
-        //BufferedReader br = new BufferedReader(new FileReader("printfile.txt"));
-        //Process p = Runtime.getRuntime().exec("python testing.py");
+      
+        //uses venv version of python - path will change based on user (update this with flexible path)
+        Process p = Runtime.getRuntime().exec("venv/bin/python2.7 mouspass_loaded_weights.py"); 
+        /*
+         * testing stuff: (remove later)
+         * BufferedReader br = new BufferedReader(new FileReader("printfile.txt"));
+         * Process p = Runtime.getRuntime().exec("python testing.py");
+        */
         labelQuestion.setText("Processing...");
         labelInstr.setText("");
-        Thread.sleep(4000);
+        File file = new File("printfile.txt");
+        while(file.exists() == false) {
+        }
         BufferedReader br = new BufferedReader(new FileReader("printfile.txt"));
         
         boolean read_from_printfile = Boolean.parseBoolean(br.readLine());

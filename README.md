@@ -17,4 +17,4 @@ Even among those technologically adept, just 30% of "online adults worry about t
 
 ## How to run the file
 
-Simply download the zip file into an empty directory and build "mousepass.java" using your IDE of choice. 
+Simply download the zip file into an empty directory and build "mousepass.java" using your IDE of choice. To run the machine learning model, first install tensorflow, python 2.7, pip, and venv inside of the MousePass directory. 

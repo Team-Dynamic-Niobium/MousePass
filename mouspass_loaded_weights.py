@@ -1,11 +1,12 @@
 import csv
 import sys
-with open("did_it_work3", "w") as f:
-    f.write("yeehaw")
-    f.write(sys.version)
 import tensorflow as tf
 import numpy as np
 from tensorflow import keras
+
+with open("did_it_work3", "w") as f:
+    f.write("yeehaw")
+    f.write(sys.version)
 lengthofoneq = 400#10,000
 lengthtotal = 2000#50,000
 ### IMPORT FROM CSV

@@ -317,7 +317,10 @@ public class MousePass extends JFrame implements ActionListener {
         no.setVisible(false);
         yes.setVisible(false);
         na.setVisible(false);
-      
+        File file = new File("printfile.txt");
+        if(file.exists()) { //check to see if there is a lingering file
+        	file.delete();
+        }
         //uses venv version of python - path will change based on user (update this with flexible path)
         Process p = Runtime.getRuntime().exec("venv/bin/python2.7 mouspass_loaded_weights.py"); 
         /*
@@ -327,8 +330,8 @@ public class MousePass extends JFrame implements ActionListener {
         */
         labelQuestion.setText("Processing...");
         labelInstr.setText("");
-        File file = new File("printfile.txt");
-        while(file.exists() == false) {
+        
+        while(file.exists() == false) { //check again until found new file
         }
         BufferedReader br = new BufferedReader(new FileReader("printfile.txt"));
         
